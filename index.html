@@ -56,10 +56,12 @@ main{padding:0 20px}.screen{animation:fadeIn .18s ease-out}@keyframes fadeIn{fro
   <div class="today-heading"><div class="eyebrow">TODAY'S PLAN</div><h2 id="todayHeadline"></h2></div>
   <div id="todayWorkoutContainer"></div>
 
-  <div class="section-heading"><h3>Other workouts</h3><p>Choose a different workout anytime.</p></div>
+  <div class="section-heading"><h3>Workout schedule</h3><p>Monday & Thursday · Lower Body · Tuesday & Friday · Upper Body</p></div>
   <div class="workout-grid">
-    <button class="workout-small" onclick="openWorkout('upper')"><div class="workout-icon">💪</div><h3>Upper Body</h3><p><span id="upperCount"></span> exercises</p></button>
-    <button class="workout-small" onclick="openWorkout('lower')"><div class="workout-icon">🦵</div><h3>Lower Body</h3><p><span id="lowerCount"></span> exercises</p></button>
+    <button class="workout-small" onclick="openWorkout('lowerMon')"><div class="workout-icon">🦵</div><h3>Monday</h3><p>Lower Body</p></button>
+    <button class="workout-small" onclick="openWorkout('upperTue')"><div class="workout-icon">💪</div><h3>Tuesday</h3><p>Upper Body</p></button>
+    <button class="workout-small" onclick="openWorkout('lowerThu')"><div class="workout-icon">🦵</div><h3>Thursday</h3><p>Lower Body</p></button>
+    <button class="workout-small" onclick="openWorkout('upperFri')"><div class="workout-icon">💪</div><h3>Friday</h3><p>Upper Body</p></button>
   </div>
 </section>
 
@@ -104,26 +106,44 @@ main{padding:0 20px}.screen{animation:fadeIn .18s ease-out}@keyframes fadeIn{fro
 
 <script>
 const WORKOUTS={
-  upper:{title:"Upper Body",exercises:[
-    {id:"bench_press",title:"Bench Press",youtube:"https://www.youtube.com/watch?v=rT7rgXQtDcI",sets:3,reps:8},
-    {id:"lat_pulldown",title:"Lat Pulldown",youtube:"https://www.youtube.com/watch?v=CAwf7n6Luuc",sets:3,reps:10},
-    {id:"seated_row",title:"Seated Cable Row",youtube:"https://www.youtube.com/watch?v=GZbfZ033f74",sets:3,reps:10},
-    {id:"shoulder_press",title:"Shoulder Press",youtube:"https://www.youtube.com/watch?v=qEwKCR5JCog",sets:3,reps:10},
-    {id:"lateral_raise",title:"Dumbbell Lateral Raise",youtube:"https://www.youtube.com/watch?v=3VcKaXpzqRo",sets:3,reps:12},
-    {id:"bicep_curl",title:"Bicep Curl",youtube:"https://www.youtube.com/watch?v=ykJmrZ5v0Oo",sets:3,reps:12},
-    {id:"tricep_pushdown",title:"Tricep Pushdown",youtube:"https://www.youtube.com/watch?v=2-LAMcpzODU",sets:3,reps:12}
+  lowerMon:{title:"Lower Body",day:"Monday",exercises:[
+    {id:"barbell_squats",title:"Barbell Squats",youtube:"https://youtu.be/vOsvDTv19PA?si=Ow_zmpbbkrTKP8px",sets:3,reps:8},
+    {id:"leg_press_mon",title:"Leg Press",youtube:"https://youtu.be/zWv-G9thuII?si=cYRnJCjkKr5SvNPt",sets:3,reps:10},
+    {id:"hip_abduction",title:"Hip Abduction",youtube:"https://youtu.be/32INI1EFi7c?si=_j-aV53OMmJBGPM6",sets:3,reps:12},
+    {id:"leg_extension_mon",title:"Leg Extension",youtube:"https://youtu.be/clRfR2IEXRw?si=vkCgrbJHxVw6Ma5u",sets:3,reps:12},
+    {id:"lying_hamstring_curl_mon",title:"Lying Down Hamstring Curl",youtube:"https://youtu.be/d0jvb6CX0VI?si=5uTErPuKOVfS5qkn",sets:3,reps:12},
+    {id:"smith_calf_raise_mon",title:"Smith Machine Calf Raise",youtube:"https://youtu.be/4eEwF_MnFAw?si=tU5RHf6wYR0wx7Bv",sets:3,reps:15}
   ]},
-  lower:{title:"Lower Body",exercises:[
-    {id:"squat",title:"Barbell Squat",youtube:"https://www.youtube.com/watch?v=SW_C1FZz1Yg",sets:3,reps:8},
-    {id:"romanian_deadlift",title:"Romanian Deadlift",youtube:"https://www.youtube.com/watch?v=JCXUYuzwNrM",sets:3,reps:10},
-    {id:"leg_press",title:"Leg Press",youtube:"https://www.youtube.com/watch?v=IZxyjW7MPJQ",sets:3,reps:10},
-    {id:"leg_curl",title:"Leg Curl",youtube:"https://www.youtube.com/watch?v=1Tq3QdYUuHs",sets:3,reps:12},
-    {id:"leg_extension",title:"Leg Extension",youtube:"https://www.youtube.com/watch?v=YyvSfVjQeL0",sets:3,reps:12},
-    {id:"calf_raise",title:"Standing Calf Raise",youtube:"https://www.youtube.com/watch?v=-M4-G8p8fmc",sets:3,reps:15}
+  upperTue:{title:"Upper Body",day:"Tuesday",exercises:[
+    {id:"flat_bench_press",title:"Flat Bench Press",youtube:"https://youtu.be/0ewIJJKaTsY?si=gOX_1kgNXvEdC3Ck",sets:3,reps:8},
+    {id:"pec_deck_fly",title:"Pec Deck Fly",youtube:"https://youtu.be/uo829803V4U?si=5FKZPbTHCeJzcJOJ",sets:3,reps:12},
+    {id:"lat_pulldown_tue",title:"Lat Pulldown",youtube:"https://youtu.be/n1T9aOiuDQs?si=KAdVQRd362jVc99S",sets:3,reps:10},
+    {id:"machine_rows",title:"Machine Rows",youtube:"https://youtu.be/E0843xgVY-Y?si=6PSSptKdYmYHMDK9",sets:3,reps:10},
+    {id:"seated_db_shoulder_press",title:"Seated Dumbbell Shoulder Press",youtube:"https://youtu.be/9jOqLvlFV0w?si=1h9P-qzOtYpuyOIc",sets:3,reps:10},
+    {id:"lateral_raises_tue",title:"Lateral Raises",youtube:"https://youtu.be/XPPfnSEATJA?si=DIJod8g4Zaw1094O",sets:3,reps:12},
+    {id:"ez_bar_bicep_curls",title:"EZ Bar Bicep Curls",youtube:"https://youtu.be/kt7ONvw6jRo?si=TEruPiHy6yrl6gyv",sets:3,reps:12},
+    {id:"tricep_pushdown_tue",title:"Tricep Pushdown",youtube:"https://youtu.be/sYr_FHRLQfI?si=cxagQzanfPJPX4VA",sets:3,reps:12}
+  ]},
+  lowerThu:{title:"Lower Body",day:"Thursday",exercises:[
+    {id:"hip_thrust",title:"Hip Thrust",youtube:"https://youtu.be/pUdIL5x0fWg?si=8gkHGClzm_EZE2m0",sets:3,reps:10},
+    {id:"smith_machine_lunges",title:"Smith Machine Lunges",youtube:"https://youtu.be/73CD40T-III?si=Oj0KiMSuNZqLpCYs",sets:3,reps:10},
+    {id:"leg_press_thu",title:"Leg Press",youtube:"https://youtu.be/zWv-G9thuII?si=cYRnJCjkKr5SvNPt",sets:3,reps:10},
+    {id:"leg_extension_thu",title:"Leg Extension",youtube:"https://youtu.be/clRfR2IEXRw?si=vkCgrbJHxVw6Ma5u",sets:3,reps:12},
+    {id:"lying_hamstring_curl_thu",title:"Lying Down Hamstring Curl",youtube:"https://youtu.be/d0jvb6CX0VI?si=5uTErPuKOVfS5qkn",sets:3,reps:12},
+    {id:"smith_calf_raise_thu",title:"Smith Machine Calf Raise",youtube:"https://youtu.be/4eEwF_MnFAw?si=tU5RHf6wYR0wx7Bv",sets:3,reps:15}
+  ]},
+  upperFri:{title:"Upper Body",day:"Friday",exercises:[
+    {id:"assisted_pullups",title:"Assisted Pull-ups",youtube:"https://youtu.be/WLzut1ZxxTY?si=wCHtP8tJhrKQLpso",sets:3,reps:8},
+    {id:"barbell_rows",title:"Barbell Rows",youtube:"https://youtu.be/EvcAxHUEX0Q?si=HVvAgK2CKmeLsUYi",sets:3,reps:10},
+    {id:"incline_db_press",title:"Incline Dumbbell Press",youtube:"https://youtu.be/OhnaP9TEZAA?si=Lw0cw6HrA9EwXXzV",sets:3,reps:10},
+    {id:"parallel_bar_dips",title:"Parallel Bar Dips",youtube:"https://youtu.be/U7HeutDqS_w?si=Pkp2ZjkDX0iBWdYh",sets:3,reps:10},
+    {id:"machine_shoulder_press",title:"Machine Shoulder Press",youtube:"https://youtu.be/WvLMauqrnK8?si=paPk-O-REMdr9Fc9",sets:3,reps:10},
+    {id:"face_pulls",title:"Face Pulls",youtube:"https://youtube.com/shorts/IeOqdw9WI90?si=KlID0psbTFVCEmXA",sets:3,reps:12},
+    {id:"hammer_curl",title:"Hammer Curl",youtube:"https://youtu.be/CFBZ4jN1CMI?si=m5Y1CdXT-8AmFlwm",sets:3,reps:12},
+    {id:"triceps_overhead_cable",title:"Triceps Overhead Cable",youtube:"https://youtu.be/jt7YZoqKXo0?si=orfW3NRP70SnYLKm",sets:3,reps:12}
   ]}
 };
-
-const WEEKLY_SCHEDULE={0:null,1:"lower",2:"upper",3:null,4:"lower",5:"upper",6:null};
+const WEEKLY_SCHEDULE={0:null,1:"lowerMon",2:"upperTue",3:null,4:"lowerThu",5:"upperFri",6:null};
 let currentWorkout=null,viewingHistoricalWorkout=false,historicalWorkoutDate=null;
 
 function dateKey(date=new Date()){return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`}
@@ -181,8 +201,7 @@ function getTodayWorkout(){return WEEKLY_SCHEDULE[new Date().getDay()]}
 
 function renderHome(){
   const type=getTodayWorkout(),container=document.getElementById("todayWorkoutContainer"),headline=document.getElementById("todayHeadline");
-  document.getElementById("upperCount").textContent=WORKOUTS.upper.exercises.length;
-  document.getElementById("lowerCount").textContent=WORKOUTS.lower.exercises.length;
+  
   if(!type){
     headline.textContent="Rest day 😌";
     container.innerHTML=`<div class="today-card rest"><div class="today-icon">😌</div><h3>Rest & Recover</h3><p>No scheduled workout today. Give your body time to recover.</p></div>`;
@@ -190,7 +209,7 @@ function renderHome(){
   }
   const w=WORKOUTS[type],completed=getWorkoutData(dateKey(),type)?.completed;
   headline.textContent=w.title;
-  container.innerHTML=`<button class="today-card ${type}" onclick="openWorkout('${type}')"><div class="ribbon">TODAY</div><div class="today-icon">${type==="upper"?"💪":"🦵"}</div><h3>${w.title}</h3><p>${type==="upper"?"Chest · Back · Shoulders · Arms":"Quads · Hamstrings · Glutes · Calves"}</p><div class="today-footer"><div class="today-meta">${w.exercises.length} exercises</div><div class="start-pill">${completed?"✓ Completed":"Start workout →"}</div></div></button>`;
+  container.innerHTML=`<button class="today-card ${type}" onclick="openWorkout('${type}')"><div class="ribbon">TODAY</div><div class="today-icon">${type.startsWith("upper")?"💪":"🦵"}</div><h3>${w.title}</h3><p>${type.startsWith("upper")?"Chest · Back · Shoulders · Arms":"Quads · Hamstrings · Glutes · Calves"}</p><div class="today-footer"><div class="today-meta">${w.exercises.length} exercises</div><div class="start-pill">${completed?"✓ Completed":"Start workout →"}</div></div></button>`;
 }
 
 function hideScreens(){["homeScreen","workoutScreen","historyScreen"].forEach(id=>document.getElementById(id).classList.add("hidden"))}
@@ -200,7 +219,7 @@ function goHome(){currentWorkout=null;viewingHistoricalWorkout=false;historicalW
 function openWorkout(type){
   currentWorkout=type;viewingHistoricalWorkout=false;historicalWorkoutDate=null;hideScreens();
   document.getElementById("workoutScreen").classList.remove("hidden");
-  document.getElementById("workoutTypeLabel").textContent=type==="upper"?"UPPER BODY":"LOWER BODY";
+  document.getElementById("workoutTypeLabel").textContent=WORKOUTS[type].day.toUpperCase();
   document.getElementById("workoutTitle").textContent=WORKOUTS[type].title;
   document.getElementById("completeWorkoutButton").classList.remove("hidden");
   renderExercises();window.scrollTo(0,0);
@@ -328,7 +347,7 @@ function getLast12WeeksWorkouts(){
   const result=[],today=dateFromKey(dateKey());
   for(let i=0;i<84;i++){
     const d=new Date(today);d.setDate(today.getDate()-i);const key=dateKey(d);
-    for(const type of ["upper","lower"]){
+    for(const type of Object.keys(WORKOUTS)){
       const data=getWorkoutData(key,type);if(data?.completed)result.push({date:key,type,data});
     }
   }
@@ -341,7 +360,7 @@ function renderHistory(){
   workouts.forEach(w=>{
     const card=document.createElement("button");card.className="history-card";card.onclick=()=>openHistoricalWorkout(w);
     const completed=w.data.exercises?.filter(e=>e.completed).length||0,total=WORKOUTS[w.type].exercises.length;
-    card.innerHTML=`<div class="history-row"><div class="history-icon">${w.type==="upper"?"💪":"🦵"}</div><div class="history-info"><strong>${WORKOUTS[w.type].title}</strong><span>${formatShortDate(dateFromKey(w.date))} · ${completed}/${total} exercises</span></div><div class="history-arrow">›</div></div>`;
+    card.innerHTML=`<div class="history-row"><div class="history-icon">${w.type.startsWith("upper")?"💪":"🦵"}</div><div class="history-info"><strong>${WORKOUTS[w.type].title}</strong><span>${formatShortDate(dateFromKey(w.date))} · ${completed}/${total} exercises</span></div><div class="history-arrow">›</div></div>`;
     c.appendChild(card);
   });
 }
@@ -356,7 +375,7 @@ function renderWeeklyChart(){
 }
 function calculateWeekStreak(){
   const today=dateFromKey(dateKey());let streak=0;
-  for(let week=0;week<12;week++){let found=false;for(let day=0;day<7;day++){const d=new Date(today);d.setDate(today.getDate()-week*7-day);const k=dateKey(d);if(getWorkoutData(k,"upper")?.completed||getWorkoutData(k,"lower")?.completed){found=true;break}}if(found)streak++;else break}
+  for(let week=0;week<12;week++){let found=false;for(let day=0;day<7;day++){const d=new Date(today);d.setDate(today.getDate()-week*7-day);const k=dateKey(d);if(Object.keys(WORKOUTS).some(type=>getWorkoutData(k,type)?.completed)){found=true;break}}if(found)streak++;else break}
   return streak;
 }
 function showHistory(){hideScreens();document.getElementById("historyScreen").classList.remove("hidden");renderHistory();setNav("history");window.scrollTo(0,0)}
@@ -364,7 +383,7 @@ function showHistory(){hideScreens();document.getElementById("historyScreen").cl
 function openHistoricalWorkout(workout){
   currentWorkout=workout.type;viewingHistoricalWorkout=true;historicalWorkoutDate=workout.date;hideScreens();
   document.getElementById("workoutScreen").classList.remove("hidden");
-  document.getElementById("workoutTypeLabel").textContent=formatDate(dateFromKey(workout.date));
+  document.getElementById("workoutTypeLabel").textContent=`${WORKOUTS[workout.type].day} · ${formatDate(dateFromKey(workout.date))}`;
   document.getElementById("workoutTitle").textContent=WORKOUTS[workout.type].title;
   document.getElementById("completeWorkoutButton").classList.add("hidden");
   renderHistoricalExercises(workout);window.scrollTo(0,0);
