@@ -37,12 +37,12 @@ main{padding:0 20px}.screen{animation:fadeIn .18s ease-out}@keyframes fadeIn{fro
 .calendar-day .day-num{display:flex;width:20px;height:20px;align-items:center;justify-content:center}
 .calendar-day .dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
 .calendar-day .dot.empty-dot{background:transparent}
-.workout-header{display:flex;align-items:center;gap:12px;padding-top:20px}.workout-header h2{margin-top:3px}.progress-card{margin-top:20px;padding:17px;border-radius:20px;background:var(--card);border:1px solid var(--border);box-shadow:var(--card-shadow)}.progress-header{display:flex;justify-content:space-between;font-size:13px}.progress-header span{color:var(--muted)}.progress-track{height:7px;margin-top:12px;overflow:hidden;border-radius:10px;background:var(--soft)}.progress-bar{width:0;height:100%;border-radius:inherit;background:var(--green);transition:width .25s}
+.workout-header{display:flex;align-items:center;gap:12px;padding-top:20px}.workout-header h2{margin-top:3px}.workout-header-icon{width:46px;height:46px;flex-shrink:0;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:23px;background:linear-gradient(135deg,var(--accent-a,var(--muted)),var(--accent-b,var(--muted)))}.workout-header .eyebrow{color:var(--accent-a,var(--muted))}.progress-card{margin-top:20px;padding:17px;border-radius:20px;background:var(--card);border:1px solid var(--border);box-shadow:var(--card-shadow)}.progress-header{display:flex;justify-content:space-between;font-size:13px}.progress-header span{color:var(--muted)}.progress-track{height:7px;margin-top:12px;overflow:hidden;border-radius:10px;background:var(--soft)}.progress-bar{width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--accent-a,var(--green)),var(--accent-b,var(--green-dark)));transition:width .25s}
 .exercise-list{display:flex;flex-direction:column;gap:16px;margin-top:16px}.exercise-card{padding:18px;border-radius:24px;background:var(--card);border:1px solid var(--border);box-shadow:var(--card-shadow)}
-.exercise-title-row{display:flex;align-items:center;gap:12px}.exercise-number{display:flex;width:38px;height:38px;flex-shrink:0;align-items:center;justify-content:center;border-radius:12px;background:var(--soft);color:var(--muted);font-size:13px;font-weight:900}.exercise-title{font-size:17px;font-weight:850}
+.exercise-title-row{display:flex;align-items:center;gap:12px}.exercise-number{display:flex;width:38px;height:38px;flex-shrink:0;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(135deg,var(--accent-a,var(--soft)),var(--accent-b,var(--soft)));color:#fff;font-size:13px;font-weight:900}.exercise-title{font-size:17px;font-weight:850}
 .exercise-body{display:flex;gap:12px;align-items:stretch;margin-top:15px}
 .exercise-inputs{flex:1;min-width:0}.exercise-inputs>:first-child{margin-top:0}
-.video-thumb{position:relative;flex:0 0 100px;width:100px;min-height:110px;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#111827,#020617);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer}
+.video-thumb{position:relative;flex:0 0 100px;width:100px;min-height:110px;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,var(--accent-a,#111827),var(--accent-b,#020617));display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer}
 .video-thumb .play{display:flex;width:38px;height:38px;align-items:center;justify-content:center;border-radius:50%;background:#ef4444;font-size:16px}
 .video-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:17px;background:#000}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video-modal{position:fixed;inset:0;z-index:200;background:rgba(5,7,15,.94);display:flex;align-items:center;justify-content:center;padding:24px}
@@ -55,7 +55,7 @@ main{padding:0 20px}.screen{animation:fadeIn .18s ease-out}@keyframes fadeIn{fro
 .set-actions{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px}.set-action{width:42px;height:42px;border-radius:50%;background:var(--soft);border:1px solid var(--border);font-size:25px;line-height:1;font-weight:500}.set-count{min-width:72px;text-align:center;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.05em}
 .exercise-actions{display:flex;gap:8px;margin-top:12px}.exercise-complete,.history-btn{flex:1;padding:11px;border-radius:13px;background:var(--soft);color:var(--muted);font-size:12px;font-weight:850}.exercise-complete.done{background:var(--green-light);color:var(--green-dark)}
 .exercise-history{margin-top:12px;padding:14px;border-radius:16px;background:var(--soft);border:1px solid var(--border)}.exercise-history h4{margin:0 0 10px;font-size:13px}.history-entry{padding:10px 0;border-top:1px solid var(--border)}.history-entry:first-of-type{border-top:0}.history-date{font-weight:850;font-size:13px}.history-line{margin-top:3px;color:var(--muted);font-size:12px;line-height:1.45}
-.complete-btn{width:100%;margin-top:18px;padding:17px;border-radius:18px;background:var(--green);color:#fff;font-size:15px;font-weight:850;box-shadow:0 8px 20px rgba(16,185,129,.28)}.save-exit-btn{display:block;width:100%;padding:14px;background:transparent;color:var(--muted);font-size:13px;font-weight:700}
+.complete-btn{width:100%;margin-top:18px;padding:17px;border-radius:18px;background:linear-gradient(135deg,var(--accent-a,var(--green)),var(--accent-b,var(--green-dark)));color:#fff;font-size:15px;font-weight:850;box-shadow:0 8px 20px var(--accent-shadow,rgba(16,185,129,.28))}.save-exit-btn{display:block;width:100%;padding:14px;background:transparent;color:var(--muted);font-size:13px;font-weight:700}
 .history-header{display:flex;align-items:center;justify-content:space-between;padding-top:20px}.summary-card{margin-top:22px;padding:20px;border-radius:24px;background:#0f172a;color:#fff}.summary-label{color:#94a3b8;font-size:12px}.summary-row{display:flex;align-items:flex-end;justify-content:space-between;margin-top:5px}.big-number{font-size:42px;font-weight:900}.summary-unit{margin-left:4px;color:#94a3b8;font-size:12px}.streak{text-align:right}.streak strong{display:block;color:#34d399;font-size:22px}.streak span{color:#94a3b8;font-size:10px}.week-row{display:flex;align-items:center;gap:9px;margin-bottom:10px}.week-label{width:48px;flex-shrink:0;color:var(--muted);font-size:10px}.week-bar-container{flex:1;height:25px;overflow:hidden;border-radius:8px;background:var(--soft)}.week-bar{display:flex;height:100%;align-items:center;padding-left:7px;border-radius:8px;background:var(--green);color:#fff;font-size:9px;font-weight:850}.week-dates{width:82px;flex-shrink:0;color:var(--muted);text-align:right;font-size:8px}
 .history-card{width:100%;margin-bottom:9px;padding:14px;border-radius:18px;background:var(--card);border:1px solid var(--border);box-shadow:var(--card-shadow);color:var(--text);text-align:left}.history-row{display:flex;align-items:center;gap:12px}.history-icon{display:flex;width:43px;height:43px;flex-shrink:0;align-items:center;justify-content:center;border-radius:13px;background:var(--soft);font-size:21px}.history-info{flex:1}.history-info strong{display:block;font-size:14px}.history-info span{display:block;margin-top:3px;color:var(--muted);font-size:11px}.history-arrow{color:var(--muted);font-size:22px}
 .bottom-nav{position:fixed;z-index:50;right:0;bottom:0;left:0;display:flex;justify-content:center;padding:10px 0 max(12px,env(safe-area-inset-bottom));background:rgba(255,255,255,.92);border-top:1px solid var(--border);backdrop-filter:blur(15px)}html.dark .bottom-nav{background:rgba(15,23,42,.92)}.bottom-nav button{display:flex;width:120px;flex-direction:column;align-items:center;gap:3px;background:transparent;color:var(--muted)}.bottom-nav button span{font-size:19px}.bottom-nav button small{font-size:10px;font-weight:750}.nav-active{color:var(--green)!important}
@@ -99,6 +99,7 @@ main{padding:0 20px}.screen{animation:fadeIn .18s ease-out}@keyframes fadeIn{fro
 <section id="workoutScreen" class="screen hidden">
   <div class="workout-header">
     <button class="back-btn" onclick="goHome()">←</button>
+    <div class="workout-header-icon" id="workoutHeaderIcon"></div>
     <div><div id="workoutTypeLabel" class="eyebrow"></div><h2 id="workoutTitle"></h2></div>
   </div>
   <div class="progress-card">
@@ -250,7 +251,14 @@ function getYouTubeVideoId(url){
   if(!url)return "";
   try{
     const u=new URL(url);
-    if(u.hostname.includes("youtube.com"))return u.searchParams.get("v")||u.pathname.split("/embed/")[1]?.split("/")[0]||"";
+    if(u.hostname.includes("youtube.com")){
+      if(u.searchParams.get("v"))return u.searchParams.get("v");
+      const path=u.pathname;
+      return path.split("/embed/")[1]?.split("/")[0]
+        ||path.split("/shorts/")[1]?.split("/")[0]
+        ||path.split("/live/")[1]?.split("/")[0]
+        ||"";
+    }
     if(u.hostname==="youtu.be")return u.pathname.substring(1).split("/")[0];
   }catch{}
   return "";
@@ -259,8 +267,9 @@ function openVideoModal(exerciseId){
   const exercise=WORKOUTS[currentWorkout]?.exercises.find(e=>e.id===exerciseId);
   if(!exercise)return;
   const id=getYouTubeVideoId(exercise.youtube);
-  if(!id)return;
-  document.getElementById("videoModalContent").innerHTML=`<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${id}?playsinline=1&autoplay=1&rel=0" title="${escapeHtml(exercise.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+  document.getElementById("videoModalContent").innerHTML=id
+    ?`<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${id}?playsinline=1&rel=0" title="${escapeHtml(exercise.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`
+    :`<p style="color:#fff;text-align:center;padding:20px">Couldn't load a video for this exercise.</p>`;
   document.getElementById("videoModal").classList.remove("hidden");
   document.body.style.overflow="hidden";
 }
@@ -305,9 +314,17 @@ function hideScreens(){["homeScreen","workoutScreen","historyScreen"].forEach(id
 function setNav(screen){document.getElementById("navHomeIcon").classList.toggle("nav-active",screen==="home");document.getElementById("navHistoryIcon").classList.toggle("nav-active",screen==="history")}
 function goHome(){currentWorkout=null;viewingHistoricalWorkout=false;historicalWorkoutDate=null;hideScreens();document.getElementById("homeScreen").classList.remove("hidden");renderHome();setNav("home");window.scrollTo(0,0)}
 
+function applyWorkoutAccent(type){
+  const el=document.getElementById("workoutScreen"),isUpper=type.startsWith("upper");
+  el.style.setProperty("--accent-a",isUpper?"#4f7cff":"#22c55e");
+  el.style.setProperty("--accent-b",isUpper?"#7c3aed":"#059669");
+  el.style.setProperty("--accent-shadow",isUpper?"rgba(79,110,255,.32)":"rgba(34,197,94,.32)");
+  document.getElementById("workoutHeaderIcon").innerHTML=isUpper?PULLUP_ICON_SVG:SQUAT_ICON_SVG;
+}
 function openWorkout(type){
   currentWorkout=type;viewingHistoricalWorkout=false;historicalWorkoutDate=null;hideScreens();
   document.getElementById("workoutScreen").classList.remove("hidden");
+  applyWorkoutAccent(type);
   document.getElementById("workoutTypeLabel").textContent=WORKOUTS[type].day.toUpperCase();
   document.getElementById("workoutTitle").textContent=WORKOUTS[type].title;
   document.getElementById("completeWorkoutButton").classList.remove("hidden");
@@ -521,6 +538,7 @@ function showHistory(){hideScreens();document.getElementById("historyScreen").cl
 function openHistoricalWorkout(workout){
   currentWorkout=workout.type;viewingHistoricalWorkout=true;historicalWorkoutDate=workout.date;hideScreens();
   document.getElementById("workoutScreen").classList.remove("hidden");
+  applyWorkoutAccent(workout.type);
   document.getElementById("workoutTypeLabel").textContent=`${WORKOUTS[workout.type].day} · ${formatDate(dateFromKey(workout.date))}`;
   document.getElementById("workoutTitle").textContent=WORKOUTS[workout.type].title;
   document.getElementById("completeWorkoutButton").classList.add("hidden");
