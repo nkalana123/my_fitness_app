@@ -9,8 +9,8 @@
 <title>Fitness Tracker</title>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-:root{--bg:#f2f4f8;--card:#ffffff;--text:#12151c;--muted:#5b6472;--border:#e1e5ed;--soft:#eceff4;--green:#16a34a;--green-dark:#15803d;--green-light:#dcfce7;--card-shadow:0 2px 10px rgba(23,35,64,.06)}
-html.dark{--bg:#0d1117;--card:#161b22;--text:#f0f3f8;--muted:#8b95a5;--border:#262c36;--soft:#1c2230;--green-light:rgba(22,163,74,.18);--card-shadow:0 2px 12px rgba(0,0,0,.35)}
+:root{--bg:#f2f4f8;--card:#ffffff;--text:#12151c;--muted:#5b6472;--border:#e1e5ed;--soft:#eceff4;--green:#10b981;--green-dark:#047857;--green-light:#d1fae5;--card-shadow:0 2px 10px rgba(23,35,64,.06)}
+html.dark{--bg:#0d1117;--card:#161b22;--text:#f0f3f8;--muted:#8b95a5;--border:#262c36;--soft:#1c2230;--green-light:rgba(16,185,129,.2);--card-shadow:0 2px 12px rgba(0,0,0,.35)}
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Helvetica,Arial,sans-serif}
 button,input{font:inherit}button{border:0;cursor:pointer;color:inherit}.hidden{display:none!important}
 .app{width:100%;max-width:650px;min-height:100vh;margin:auto;padding-bottom:100px}
@@ -20,7 +20,7 @@ button,input{font:inherit}button{border:0;cursor:pointer;color:inherit}.hidden{d
 main{padding:0 20px}.screen{animation:fadeIn .18s ease-out}@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 .today-heading{padding-top:22px;margin-bottom:20px}.eyebrow{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.11em}h2{margin:5px 0 0;font-size:32px;line-height:1.08;letter-spacing:-.04em}
 .today-card{position:relative;width:100%;overflow:hidden;padding:24px;border-radius:27px;color:#fff;text-align:left;box-shadow:0 12px 30px rgba(0,0,0,.13)}
-.today-card.upper{background:linear-gradient(135deg,#2563eb,#1d4ed8)}.today-card.lower{background:linear-gradient(135deg,#16a34a,#15803d)}.today-card.rest{background:linear-gradient(135deg,#475569,#334155)}
+.today-card.upper{background:linear-gradient(135deg,#4f7cff,#7c3aed);box-shadow:0 14px 32px rgba(79,110,255,.35)}.today-card.lower{background:linear-gradient(135deg,#22c55e,#059669);box-shadow:0 14px 32px rgba(34,197,94,.35)}.today-card.rest{background:linear-gradient(135deg,#8b5cf6,#6d28d9);box-shadow:0 14px 32px rgba(139,92,246,.35)}
 .today-icon{font-size:36px}.today-card h3{margin:10px 0 4px;font-size:24px}.today-card p{margin:0;color:rgba(255,255,255,.78);font-size:13px}
 .ribbon{position:absolute;top:14px;right:-32px;transform:rotate(35deg);padding:6px 38px;background:#fff;color:#111827;font-size:10px;font-weight:900;letter-spacing:.08em}
 .today-footer{display:flex;align-items:center;justify-content:space-between;margin-top:22px}.today-meta{font-size:11px;color:rgba(255,255,255,.78)}.start-pill{padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.16);font-size:11px;font-weight:800}
@@ -40,19 +40,34 @@ main{padding:0 20px}.screen{animation:fadeIn .18s ease-out}@keyframes fadeIn{fro
 .workout-header{display:flex;align-items:center;gap:12px;padding-top:20px}.workout-header h2{margin-top:3px}.progress-card{margin-top:20px;padding:17px;border-radius:20px;background:var(--card);border:1px solid var(--border);box-shadow:var(--card-shadow)}.progress-header{display:flex;justify-content:space-between;font-size:13px}.progress-header span{color:var(--muted)}.progress-track{height:7px;margin-top:12px;overflow:hidden;border-radius:10px;background:var(--soft)}.progress-bar{width:0;height:100%;border-radius:inherit;background:var(--green);transition:width .25s}
 .exercise-list{display:flex;flex-direction:column;gap:16px;margin-top:16px}.exercise-card{padding:18px;border-radius:24px;background:var(--card);border:1px solid var(--border);box-shadow:var(--card-shadow)}
 .exercise-title-row{display:flex;align-items:center;gap:12px}.exercise-number{display:flex;width:38px;height:38px;flex-shrink:0;align-items:center;justify-content:center;border-radius:12px;background:var(--soft);color:var(--muted);font-size:13px;font-weight:900}.exercise-title{font-size:17px;font-weight:850}
-.video-section{margin-top:15px}.video-placeholder,.video-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:17px}.video-placeholder{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#111827,#020617);color:#fff;cursor:pointer}.video-placeholder .play{display:flex;width:58px;height:58px;align-items:center;justify-content:center;border-radius:50%;background:#ef4444;font-size:25px}.video-label{position:absolute;bottom:13px;left:15px;color:rgba(255,255,255,.75);font-size:11px;font-weight:700}.video-frame{background:#000}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.exercise-body{display:flex;gap:12px;align-items:stretch;margin-top:15px}
+.exercise-inputs{flex:1;min-width:0}.exercise-inputs>:first-child{margin-top:0}
+.video-thumb{position:relative;flex:0 0 100px;width:100px;min-height:110px;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#111827,#020617);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer}
+.video-thumb .play{display:flex;width:38px;height:38px;align-items:center;justify-content:center;border-radius:50%;background:#ef4444;font-size:16px}
+.video-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:17px;background:#000}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-modal{position:fixed;inset:0;z-index:200;background:rgba(5,7,15,.94);display:flex;align-items:center;justify-content:center;padding:24px}
+.video-modal .video-frame{width:100%;max-width:650px}
+.video-modal-close{position:absolute;top:max(20px,env(safe-area-inset-top) + 10px);right:20px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center}
 .target-box{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding:13px;border-radius:15px;background:var(--soft)}.target-label{color:var(--muted);font-size:12px}.target-value{font-size:14px;font-weight:850}
 .input-label{display:block;margin-top:15px;color:var(--muted);font-size:10px;font-weight:850;letter-spacing:.08em}
-.set-row{display:grid;grid-template-columns:42px 1fr 1fr;gap:8px;align-items:center;margin-top:8px}.set-number{display:flex;height:46px;align-items:center;justify-content:center;border-radius:13px;background:var(--soft);color:var(--muted);font-size:11px;font-weight:900}
+.set-row{display:grid;grid-template-columns:38px 1fr 1fr;gap:6px;align-items:center;margin-top:8px}.set-number{display:flex;height:46px;align-items:center;justify-content:center;border-radius:13px;background:var(--soft);color:var(--muted);font-size:11px;font-weight:900}
 .set-row input{width:100%;padding:12px 5px;border:1px solid var(--border);border-radius:13px;outline:none;background:var(--soft);color:var(--text);text-align:center;font-size:17px;font-weight:800}.set-row input:focus{border-color:var(--green)}
 .set-actions{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px}.set-action{width:42px;height:42px;border-radius:50%;background:var(--soft);border:1px solid var(--border);font-size:25px;line-height:1;font-weight:500}.set-count{min-width:72px;text-align:center;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.05em}
 .exercise-actions{display:flex;gap:8px;margin-top:12px}.exercise-complete,.history-btn{flex:1;padding:11px;border-radius:13px;background:var(--soft);color:var(--muted);font-size:12px;font-weight:850}.exercise-complete.done{background:var(--green-light);color:var(--green-dark)}
 .exercise-history{margin-top:12px;padding:14px;border-radius:16px;background:var(--soft);border:1px solid var(--border)}.exercise-history h4{margin:0 0 10px;font-size:13px}.history-entry{padding:10px 0;border-top:1px solid var(--border)}.history-entry:first-of-type{border-top:0}.history-date{font-weight:850;font-size:13px}.history-line{margin-top:3px;color:var(--muted);font-size:12px;line-height:1.45}
-.complete-btn{width:100%;margin-top:18px;padding:17px;border-radius:18px;background:var(--green);color:#fff;font-size:15px;font-weight:850;box-shadow:0 8px 20px rgba(22,163,74,.22)}.save-exit-btn{display:block;width:100%;padding:14px;background:transparent;color:var(--muted);font-size:13px;font-weight:700}
-.history-header{display:flex;align-items:center;justify-content:space-between;padding-top:20px}.summary-card{margin-top:22px;padding:20px;border-radius:24px;background:#0f172a;color:#fff}.summary-label{color:#94a3b8;font-size:12px}.summary-row{display:flex;align-items:flex-end;justify-content:space-between;margin-top:5px}.big-number{font-size:42px;font-weight:900}.summary-unit{margin-left:4px;color:#94a3b8;font-size:12px}.streak{text-align:right}.streak strong{display:block;color:#4ade80;font-size:22px}.streak span{color:#94a3b8;font-size:10px}.week-row{display:flex;align-items:center;gap:9px;margin-bottom:10px}.week-label{width:48px;flex-shrink:0;color:var(--muted);font-size:10px}.week-bar-container{flex:1;height:25px;overflow:hidden;border-radius:8px;background:var(--soft)}.week-bar{display:flex;height:100%;align-items:center;padding-left:7px;border-radius:8px;background:var(--green);color:#fff;font-size:9px;font-weight:850}.week-dates{width:82px;flex-shrink:0;color:var(--muted);text-align:right;font-size:8px}
+.complete-btn{width:100%;margin-top:18px;padding:17px;border-radius:18px;background:var(--green);color:#fff;font-size:15px;font-weight:850;box-shadow:0 8px 20px rgba(16,185,129,.28)}.save-exit-btn{display:block;width:100%;padding:14px;background:transparent;color:var(--muted);font-size:13px;font-weight:700}
+.history-header{display:flex;align-items:center;justify-content:space-between;padding-top:20px}.summary-card{margin-top:22px;padding:20px;border-radius:24px;background:#0f172a;color:#fff}.summary-label{color:#94a3b8;font-size:12px}.summary-row{display:flex;align-items:flex-end;justify-content:space-between;margin-top:5px}.big-number{font-size:42px;font-weight:900}.summary-unit{margin-left:4px;color:#94a3b8;font-size:12px}.streak{text-align:right}.streak strong{display:block;color:#34d399;font-size:22px}.streak span{color:#94a3b8;font-size:10px}.week-row{display:flex;align-items:center;gap:9px;margin-bottom:10px}.week-label{width:48px;flex-shrink:0;color:var(--muted);font-size:10px}.week-bar-container{flex:1;height:25px;overflow:hidden;border-radius:8px;background:var(--soft)}.week-bar{display:flex;height:100%;align-items:center;padding-left:7px;border-radius:8px;background:var(--green);color:#fff;font-size:9px;font-weight:850}.week-dates{width:82px;flex-shrink:0;color:var(--muted);text-align:right;font-size:8px}
 .history-card{width:100%;margin-bottom:9px;padding:14px;border-radius:18px;background:var(--card);border:1px solid var(--border);box-shadow:var(--card-shadow);color:var(--text);text-align:left}.history-row{display:flex;align-items:center;gap:12px}.history-icon{display:flex;width:43px;height:43px;flex-shrink:0;align-items:center;justify-content:center;border-radius:13px;background:var(--soft);font-size:21px}.history-info{flex:1}.history-info strong{display:block;font-size:14px}.history-info span{display:block;margin-top:3px;color:var(--muted);font-size:11px}.history-arrow{color:var(--muted);font-size:22px}
 .bottom-nav{position:fixed;z-index:50;right:0;bottom:0;left:0;display:flex;justify-content:center;padding:10px 0 max(12px,env(safe-area-inset-bottom));background:rgba(255,255,255,.92);border-top:1px solid var(--border);backdrop-filter:blur(15px)}html.dark .bottom-nav{background:rgba(15,23,42,.92)}.bottom-nav button{display:flex;width:120px;flex-direction:column;align-items:center;gap:3px;background:transparent;color:var(--muted)}.bottom-nav button span{font-size:19px}.bottom-nav button small{font-size:10px;font-weight:750}.nav-active{color:var(--green)!important}
 @media(max-width:420px){main{padding:0 16px}.topbar{padding-left:16px;padding-right:16px}h2{font-size:29px}.today-card{padding:21px}}
+.pullup-figure{animation:pullupBob 1.1s ease-in-out infinite;transform-origin:center}
+@keyframes pullupBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.squat-figure{animation:squatBob 1.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center bottom}
+@keyframes squatBob{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.78)}}
+.rest-figure{animation:restBreathe 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes restBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.rest-aura{animation:restPulse 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes restPulse{0%{transform:scale(.8);opacity:.45}70%,100%{transform:scale(1.2);opacity:0}}
 </style>
 </head>
 <body>
@@ -74,10 +89,10 @@ main{padding:0 20px}.screen{animation:fadeIn .18s ease-out}@keyframes fadeIn{fro
 
   <div class="section-heading"><h3>Workout schedule</h3><p>Monday & Thursday · Lower Body · Tuesday & Friday · Upper Body</p></div>
   <div class="workout-grid">
-    <button class="workout-small" onclick="openWorkout('lowerMon')"><div class="workout-icon">🦵</div><h3>Monday</h3><p>Lower Body</p></button>
-    <button class="workout-small" onclick="openWorkout('upperTue')"><div class="workout-icon">💪</div><h3>Tuesday</h3><p>Upper Body</p></button>
-    <button class="workout-small" onclick="openWorkout('lowerThu')"><div class="workout-icon">🦵</div><h3>Thursday</h3><p>Lower Body</p></button>
-    <button class="workout-small" onclick="openWorkout('upperFri')"><div class="workout-icon">💪</div><h3>Friday</h3><p>Upper Body</p></button>
+    <button class="workout-small" onclick="openWorkout('lowerMon')"><div class="workout-icon"><svg viewBox="0 0 40 40" width="1em" height="1em" style="display:block" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="squat-figure"><circle cx="8" cy="14" r="3" fill="currentColor"/><circle cx="32" cy="14" r="3" fill="currentColor"/><line x1="8" y1="14" x2="32" y2="14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="8" r="3.5" fill="currentColor"/><line x1="20" y1="14" x2="20" y2="24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="24" x2="14" y2="36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="20" y1="24" x2="26" y2="36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></g></svg></div><h3>Monday</h3><p>Lower Body</p></button>
+    <button class="workout-small" onclick="openWorkout('upperTue')"><div class="workout-icon"><svg viewBox="0 0 40 40" width="1em" height="1em" style="display:block" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="4" y1="7" x2="36" y2="7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><g class="pullup-figure"><line x1="13" y1="9" x2="18" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="9" x2="22" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="21" r="4.5" fill="currentColor"/><line x1="20" y1="25.5" x2="20" y2="32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="32" x2="16.5" y2="37" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="20" y1="32" x2="23.5" y2="37" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></g></svg></div><h3>Tuesday</h3><p>Upper Body</p></button>
+    <button class="workout-small" onclick="openWorkout('lowerThu')"><div class="workout-icon"><svg viewBox="0 0 40 40" width="1em" height="1em" style="display:block" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="squat-figure"><circle cx="8" cy="14" r="3" fill="currentColor"/><circle cx="32" cy="14" r="3" fill="currentColor"/><line x1="8" y1="14" x2="32" y2="14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="8" r="3.5" fill="currentColor"/><line x1="20" y1="14" x2="20" y2="24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="24" x2="14" y2="36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="20" y1="24" x2="26" y2="36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></g></svg></div><h3>Thursday</h3><p>Lower Body</p></button>
+    <button class="workout-small" onclick="openWorkout('upperFri')"><div class="workout-icon"><svg viewBox="0 0 40 40" width="1em" height="1em" style="display:block" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="4" y1="7" x2="36" y2="7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><g class="pullup-figure"><line x1="13" y1="9" x2="18" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="9" x2="22" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="21" r="4.5" fill="currentColor"/><line x1="20" y1="25.5" x2="20" y2="32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="32" x2="16.5" y2="37" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="20" y1="32" x2="23.5" y2="37" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></g></svg></div><h3>Friday</h3><p>Upper Body</p></button>
   </div>
 </section>
 
@@ -122,6 +137,11 @@ main{padding:0 20px}.screen{animation:fadeIn .18s ease-out}@keyframes fadeIn{fro
 </nav>
 </div>
 
+<div id="videoModal" class="video-modal hidden" onclick="closeVideoModal()">
+  <button class="video-modal-close" onclick="closeVideoModal()">✕</button>
+  <div id="videoModalContent" onclick="event.stopPropagation()"></div>
+</div>
+
 <script>
 const WORKOUTS={
   lowerMon:{title:"Lower Body",day:"Monday",exercises:[
@@ -162,6 +182,34 @@ const WORKOUTS={
   ]}
 };
 const WEEKLY_SCHEDULE={0:null,1:"lowerMon",2:"upperTue",3:null,4:"lowerThu",5:"upperFri",6:null};
+const PULLUP_ICON_SVG=`<svg viewBox="0 0 40 40" width="1em" height="1em" style="display:block" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <line x1="4" y1="7" x2="36" y2="7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <g class="pullup-figure">
+    <line x1="13" y1="9" x2="18" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="27" y1="9" x2="22" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="20" cy="21" r="4.5" fill="currentColor"/>
+    <line x1="20" y1="25.5" x2="20" y2="32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <line x1="20" y1="32" x2="16.5" y2="37" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="20" y1="32" x2="23.5" y2="37" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</svg>`;
+const REST_ICON_SVG=`<svg viewBox="0 0 40 40" width="1em" height="1em" style="display:block" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <circle class="rest-aura" cx="20" cy="22" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <g class="rest-figure">
+    <circle cx="20" cy="10" r="4" fill="currentColor"/>
+    <path d="M14,31 Q14,20 20,17 Q26,20 26,31 Q20,35 14,31 Z" fill="currentColor"/>
+  </g>
+</svg>`;const SQUAT_ICON_SVG=`<svg viewBox="0 0 40 40" width="1em" height="1em" style="display:block" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <g class="squat-figure">
+    <circle cx="8" cy="14" r="3" fill="currentColor"/>
+    <circle cx="32" cy="14" r="3" fill="currentColor"/>
+    <line x1="8" y1="14" x2="32" y2="14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="20" cy="8" r="3.5" fill="currentColor"/>
+    <line x1="20" y1="14" x2="20" y2="24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <line x1="20" y1="24" x2="14" y2="36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="20" y1="24" x2="26" y2="36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</svg>`;
 let currentWorkout=null,viewingHistoricalWorkout=false,historicalWorkoutDate=null;
 
 function dateKey(date=new Date()){return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`}
@@ -207,12 +255,19 @@ function getYouTubeVideoId(url){
   }catch{}
   return "";
 }
-function loadYouTube(exerciseId){
+function openVideoModal(exerciseId){
   const exercise=WORKOUTS[currentWorkout]?.exercises.find(e=>e.id===exerciseId);
   if(!exercise)return;
-  const c=document.getElementById(`video_${exerciseId}`),id=getYouTubeVideoId(exercise.youtube);
-  if(!c||!id)return;
-  c.innerHTML=`<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${id}?playsinline=1&rel=0" title="${escapeHtml(exercise.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+  const id=getYouTubeVideoId(exercise.youtube);
+  if(!id)return;
+  document.getElementById("videoModalContent").innerHTML=`<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${id}?playsinline=1&autoplay=1&rel=0" title="${escapeHtml(exercise.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+  document.getElementById("videoModal").classList.remove("hidden");
+  document.body.style.overflow="hidden";
+}
+function closeVideoModal(){
+  document.getElementById("videoModal").classList.add("hidden");
+  document.getElementById("videoModalContent").innerHTML="";
+  document.body.style.overflow="";
 }
 
 function getTodayWorkout(){return WEEKLY_SCHEDULE[new Date().getDay()]}
@@ -221,25 +276,27 @@ function renderHome(){
   const type=getTodayWorkout(),container=document.getElementById("todayWorkoutContainer"),headline=document.getElementById("todayHeadline");
   
   if(!type){
-    headline.textContent="Rest day 😌";
-    container.innerHTML=`<div class="today-card rest"><div class="today-icon">😌</div><h3>Rest & Recover</h3><p>No scheduled workout today. Give your body time to recover.</p></div>`;
+    headline.textContent="Rest day";
+    container.innerHTML=`<div class="today-card rest"><div class="today-icon">${REST_ICON_SVG}</div><h3>Rest & Recover</h3><p>No scheduled workout today. Give your body time to recover.</p></div>`;
     renderWeekProgress();
     return;
   }
   const w=WORKOUTS[type],completed=getWorkoutData(dateKey(),type)?.completed;
   headline.textContent=w.title;
-  container.innerHTML=`<button class="today-card ${type}" onclick="openWorkout('${type}')"><div class="ribbon">TODAY</div><div class="today-icon">${type.startsWith("upper")?"💪":"🦵"}</div><h3>${w.title}</h3><p>${type.startsWith("upper")?"Chest · Back · Shoulders · Arms":"Quads · Hamstrings · Glutes · Calves"}</p><div class="today-footer"><div class="today-meta">${w.exercises.length} exercises</div><div class="start-pill">${completed?"✓ Completed":"Start workout →"}</div></div></button>`;
+  container.innerHTML=`<button class="today-card ${type}" onclick="openWorkout('${type}')"><div class="ribbon">TODAY</div><div class="today-icon">${type.startsWith("upper")?PULLUP_ICON_SVG:SQUAT_ICON_SVG}</div><h3>${w.title}</h3><p>${type.startsWith("upper")?"Chest · Back · Shoulders · Arms":"Quads · Hamstrings · Glutes · Calves"}</p><div class="today-footer"><div class="today-meta">${w.exercises.length} exercises</div><div class="start-pill">${completed?"✓ Completed":"Start workout →"}</div></div></button>`;
   renderWeekProgress();
 }
 
 function getMondayOfWeek(date){const d=new Date(date);const dow=d.getDay();const diff=dow===0?-6:1-dow;d.setDate(d.getDate()+diff);d.setHours(0,0,0,0);return d}
 function renderWeekProgress(){
-  const monday=getMondayOfWeek(new Date());let completed=0,total=0;
-  for(let i=0;i<7;i++){
-    const d=new Date(monday);d.setDate(monday.getDate()+i);
-    const type=WEEKLY_SCHEDULE[d.getDay()];if(!type)continue;
-    total++;if(getWorkoutData(dateKey(d),type)?.completed)completed++;
-  }
+  const monday=getMondayOfWeek(new Date());
+  const weekKeys=[];
+  for(let i=0;i<7;i++){const d=new Date(monday);d.setDate(monday.getDate()+i);weekKeys.push(dateKey(d));}
+  // Count each scheduled workout type once, crediting it if it was completed on ANY day
+  // this week (not just its usual weekday) - workouts done on a swapped day still count.
+  const scheduledTypes=[...new Set(Object.values(WEEKLY_SCHEDULE).filter(Boolean))];
+  const total=scheduledTypes.length;
+  const completed=scheduledTypes.filter(type=>weekKeys.some(k=>getWorkoutData(k,type)?.completed)).length;
   document.getElementById("weekProgressText").textContent=`${completed} / ${total} workouts`;
   document.getElementById("weekProgressBar").style.width=`${total?completed/total*100:0}%`;
 }
@@ -266,10 +323,14 @@ function renderExercises(){
     const card=document.createElement("div");card.className="exercise-card";card.dataset.exerciseId=exercise.id;
     card.innerHTML=`
       <div class="exercise-title-row"><div class="exercise-number">${index+1}</div><div class="exercise-title">${escapeHtml(exercise.title)}</div></div>
-      <div id="video_${exercise.id}" class="video-section"><div class="video-placeholder" onclick="loadYouTube('${exercise.id}')"><div class="play">▶</div><div class="video-label">Tap to watch technique</div></div></div>
-      <div class="target-box"><span class="target-label">Target</span><span class="target-value">${exercise.sets} × ${exercise.reps}</span></div>
-      <label class="input-label">SETS × REPS × WEIGHT</label>
-      <div id="sets_${exercise.id}">${setsData.map((s,i)=>setRowHtml(exercise.id,i,s)).join("")}</div>
+      <div class="exercise-body">
+        <div class="video-thumb" onclick="openVideoModal('${exercise.id}')" role="button" aria-label="Watch ${escapeHtml(exercise.title)} technique"><div class="play">▶</div></div>
+        <div class="exercise-inputs">
+          <div class="target-box"><span class="target-label">Target</span><span class="target-value">${exercise.sets} × ${exercise.reps}</span></div>
+          <label class="input-label">SETS × REPS × WEIGHT</label>
+          <div id="sets_${exercise.id}">${setsData.map((s,i)=>setRowHtml(exercise.id,i,s)).join("")}</div>
+        </div>
+      </div>
       <div class="set-actions">
         <button class="set-action" onclick="removeSet('${exercise.id}')" aria-label="Remove last set">−</button>
         <div class="set-count" id="setCount_${exercise.id}">${setsData.length} SETS</div>
@@ -311,7 +372,6 @@ function saveSetField(exerciseId,index,field,value){
 
 function addSet(exerciseId){
   const {data,ex}=getOrCreateExercise(exerciseId);
-  const last=ex.setsData[ex.setsData.length-1]||{reps:"",weight:""};
   // New rows start blank, so the user enters the actual reps/weight for each set.
   ex.setsData.push({reps:"",weight:""});
   saveWorkoutData(dateKey(),currentWorkout,data);renderExercises();
@@ -349,17 +409,34 @@ function toggleExerciseHistory(exerciseId){
   box.classList.remove("hidden");box.innerHTML=renderExerciseHistoryHtml(exerciseId);
 }
 
+function getExerciseVariants(title){
+  // Same exercise (e.g. "Leg Press") is stored under a different id/type per
+  // scheduled day (leg_press_mon vs leg_press_thu). Collect every {type,id}
+  // that shares this title so history can include all of them.
+  const variants=[];
+  for(const t of Object.keys(WORKOUTS)){
+    const def=WORKOUTS[t].exercises.find(e=>e.title===title);
+    if(def)variants.push({type:t,id:def.id});
+  }
+  return variants;
+}
 function getExerciseHistory(exerciseId,type=currentWorkout){
+  const sourceDef=WORKOUTS[type]?.exercises.find(e=>e.id===exerciseId);
+  if(!sourceDef)return [];
+  const variants=getExerciseVariants(sourceDef.title);
   const result=[];
   const today=dateFromKey(dateKey());
   for(let i=0;i<84;i++){
     const d=new Date(today);d.setDate(today.getDate()-i);
-    const key=dateKey(d),data=getWorkoutData(key,type);if(!data)continue;
-    const ex=data.exercises?.find(e=>e.id===exerciseId);if(!ex)continue;
-    const def=WORKOUTS[type].exercises.find(e=>e.id===exerciseId);if(!def)continue;
-    const normalized=normalizeExercise(ex,def);
-    const sets=(normalized.setsData||[]).filter(s=>s.reps!==""||s.weight!=="");
-    if(sets.length)result.push({date:key,sets});
+    const key=dateKey(d);
+    for(const v of variants){
+      const data=getWorkoutData(key,v.type);if(!data)continue;
+      const ex=data.exercises?.find(e=>e.id===v.id);if(!ex)continue;
+      const def=WORKOUTS[v.type].exercises.find(e=>e.id===v.id);if(!def)continue;
+      const normalized=normalizeExercise(ex,def);
+      const sets=(normalized.setsData||[]).filter(s=>s.reps!==""||s.weight!=="");
+      if(sets.length)result.push({date:key,day:WORKOUTS[v.type].day,sets});
+    }
   }
   return result;
 }
@@ -370,7 +447,7 @@ function renderExerciseHistoryHtml(exerciseId){
   return `<h4>Exercise history · 12 weeks</h4>`+history.map(h=>{
     const reps=h.sets.map(s=>s.reps===""?"—":s.reps).join(", ");
     const weights=h.sets.map(s=>s.weight===""?"—":s.weight).join(", ");
-    return `<div class="history-entry"><div class="history-date">${formatDate(dateFromKey(h.date))}</div><div class="history-line">Sets: ${h.sets.length}<br>Reps: ${reps}<br>Weight: ${weights} kg</div></div>`;
+    return `<div class="history-entry"><div class="history-date">${formatDate(dateFromKey(h.date))}${h.day?` · ${h.day}`:""}</div><div class="history-line">Sets: ${h.sets.length}<br>Reps: ${reps}<br>Weight: ${weights} kg</div></div>`;
   }).join("");
 }
 
@@ -421,14 +498,14 @@ function renderHistory(){
   workouts.forEach(w=>{
     const card=document.createElement("button");card.className="history-card";card.onclick=()=>openHistoricalWorkout(w);
     const completed=w.data.exercises?.filter(e=>e.completed).length||0,total=WORKOUTS[w.type].exercises.length;
-    card.innerHTML=`<div class="history-row"><div class="history-icon">${w.type.startsWith("upper")?"💪":"🦵"}</div><div class="history-info"><strong>${WORKOUTS[w.type].title}</strong><span>${formatShortDate(dateFromKey(w.date))} · ${completed}/${total} exercises</span></div><div class="history-arrow">›</div></div>`;
+    card.innerHTML=`<div class="history-row"><div class="history-icon">${w.type.startsWith("upper")?PULLUP_ICON_SVG:SQUAT_ICON_SVG}</div><div class="history-info"><strong>${WORKOUTS[w.type].title}</strong><span>${formatShortDate(dateFromKey(w.date))} · ${completed}/${total} exercises</span></div><div class="history-arrow">›</div></div>`;
     c.appendChild(card);
   });
 }
 function renderWeeklyChart(){
   const c=document.getElementById("weeklyChart");c.innerHTML="";const today=dateFromKey(dateKey());
   for(let week=0;week<12;week++){
-    let count=0;for(let day=0;day<7;day++){const d=new Date(today);d.setDate(today.getDate()-week*7-day);const k=dateKey(d);if(getWorkoutData(k,"upper")?.completed)count++;if(getWorkoutData(k,"lower")?.completed)count++}
+    let count=0;for(let day=0;day<7;day++){const d=new Date(today);d.setDate(today.getDate()-week*7-day);const k=dateKey(d);for(const type of Object.keys(WORKOUTS)){if(getWorkoutData(k,type)?.completed)count++}}
     const start=new Date(today);start.setDate(today.getDate()-week*7-6);const end=new Date(today);end.setDate(today.getDate()-week*7);
     const row=document.createElement("div");row.className="week-row";row.innerHTML=`<div class="week-label">Week ${12-week}</div><div class="week-bar-container">${count?`<div class="week-bar" style="width:${Math.max(count/4*100,15)}%">${count}</div>`:""}</div><div class="week-dates">${formatShortDate(start)} – ${formatShortDate(end)}</div>`;c.appendChild(row);
   }
